@@ -3,7 +3,16 @@
   AOS.init({
   });
 
-  luxy.init();
+  if (navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('Mobile') > 0) {
+    // スマートフォン
+  }
+  else if (navigator.userAgent.indexOf('iPad') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+    // タブレット
+  }
+  else {
+    // PC
+    luxy.init();
+  }
 
   // FancyBox
   $('[data-fancybox]').fancybox({
