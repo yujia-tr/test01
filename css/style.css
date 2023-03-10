@@ -343,7 +343,7 @@ section {
     font-size: clamp(1rem, 0.498rem + 1.04vw, 1.75rem);
     width: max(140px,20%);
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -100%);
     padding: 8px 0px;
     text-align: center;
     transition: .6s;
