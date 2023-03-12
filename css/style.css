@@ -478,3 +478,142 @@ footer {
     border-right: 5px solid #707070;
     transform: translateY(20%) rotate(-45deg);
 }
+
+
+
+
+
+/* menu */
+.menu-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-container{
+	position: fixed;
+  color: #fff;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	background: rgba(0,0,0,90%);
+	/* padding: 40px 20px; */
+	overflow: auto;
+	opacity: 0;
+	visibility: hidden;
+	transition: .3s;
+
+  opacity: 0;
+  visibility: hidden;
+  /* width: 0;
+  height: 0; */
+  z-index: 1000;
+}
+
+.menu-container.active {
+	opacity: 1;
+  visibility:visible;
+  /* width: 100%;
+  height: 100%; */
+}
+
+.menu-content {
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 100px auto;
+  grid-template-rows: auto 1fr;
+	background: rgba(0,0,0,70%);
+}
+
+.menu-content p {
+  justify-self: start;
+  align-self: end;
+  margin: 0 0 0 40px;
+}
+
+.menu-content ol {
+  justify-self: start;
+  margin-left: 20px;
+}
+
+.menu-container h2 {
+  color: #fff;
+  margin: 0;
+}
+
+.menu-content .title {
+  transform: rotate(-90deg);
+  margin-left: 100px;
+  grid-column: 1/2;
+  grid-row: 1/3;
+}
+
+.menu-heading {
+  font-weight: normal;
+  font-size:62px;
+  letter-spacing: 0.2em;
+  line-height: 2.1;
+  white-space:nowrap;
+  text-align: lefmot;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.menu-heading.isActive {
+  opacity: 1;
+  animation: .4s shake 5 alternate;
+}
+
+.menu-ul {
+  font-size: 28px;
+  line-height: 4em;
+}
+
+.menu-ul .menu-link {
+  color: #fff;
+}
+
+.menu-open {
+  cursor: pointer;
+}
+
+.menu-close {
+  /* display: block; */
+  position: relative;
+  width: 80px;
+  height: 80px;
+  top: 55px;
+  margin-left: auto;
+  background-color:transparent; 
+  cursor: pointer;
+}
+
+.menu-close::after, .menu-close::before {
+  content: '';
+  display: block;
+  position: absolute;
+  /* right: 10px; */
+  width: 80px;
+  height: 5px;
+  transition: all .3s;
+  background-color: #707070;
+  cursor: pointer;
+}
+
+.menu-close::after {
+  top: 0px;
+  transform: rotate(-45deg);
+}
+
+.menu-close::before {
+  top: 0px;
+  transform: rotate(45deg);
+}
