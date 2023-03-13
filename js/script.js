@@ -48,16 +48,28 @@ $(function () {
 
 //スクロールによる見出しアニメーション
 $(function () {
+  let winW =window.innerHeight;
+
   $('.heading-title').on('inview', function () {
     $(this).toggleClass('isActive');
   });
 
+  $(window).on('scroll', function(){
+    if ($(this).scrollTop() >= winW) {
+      $('.header-button').addClass('active');
+      $('.pagetop').addClass('active');
+
+    }
+    else {
+      $('.header-button').removeClass('active');
+      $('.pagetop').removeClass('active');
+    }
+  });
 });
 
 //ヘッダーの表示・非表示
 $(function () {
   var flag = 1;
-
   //windowサイズの取得
   $(window).on('load resize', function(){
     var winW = $(window).width();
@@ -69,7 +81,6 @@ $(function () {
         flag = 0;
     }
   });
-
   //windowサイズによってのヘッダーメニューを開く
   $('.header-button').on('click', function () {
     if (flag == 1) {
@@ -81,7 +92,10 @@ $(function () {
       $('#header').addClass('active');
     }
   });
+});
 
+//ヘッダーメニュー　閉じる
+$(function () {
   $('.header-gnav ul li a').on('click', function () {
     $('#header').removeClass('active');
   });
@@ -98,7 +112,6 @@ $(function () {
       $('#header').removeClass('active');
     }
   });
-
 });
 
 //ヘッダーメニュー モーダルを閉じる
@@ -135,6 +148,7 @@ $(function(){
     $('.modal-heading').removeClass('isActive');
   });
 
+  //モーダル内リンク押下時　モーダル閉じる
   $('.modal-link').on('click',function(){	
 		$('.modal-container').removeClass('active');
     $('body').css('overflow-y','auto');
