@@ -3,6 +3,7 @@
   AOS.init({
   });
 
+  //luxy (慣性スクロールの有効・無効条件)
   if (navigator.userAgent.indexOf('iPhone') > 0 || navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('Mobile') > 0) {
     // スマートフォン
   }
@@ -24,14 +25,10 @@
     }
   });
 
-
-  // Pagetop
-  $('#pagetop').on('click', (e) => {
-
-    let $target = $(e.target);
-
-  });
-
+  // // Pagetop
+  // $('#pagetop').on('click', (e) => {
+  //   let $target = $(e.target);
+  // });
 })();
 
 //ページ内リンク スムーススクロール
@@ -46,25 +43,34 @@ $(function () {
   });
 });
 
-//スクロールによる見出しアニメーション
+//スクロール処理
 $(function () {
+  //ウィンドウの高さ取得
   let winW =window.innerHeight;
 
-  $('.heading-title').on('inview', function () {
-    $(this).toggleClass('isActive');
-  });
-
+  // ヘッダーメニュー、トップボタンの表示
+  //top画像がある場合
+  if ($('#top').length) {
   $(window).on('scroll', function(){
     if ($(this).scrollTop() >= winW) {
       $('.header-button').addClass('active');
       $('.pagetop').addClass('active');
-
     }
     else {
       $('.header-button').removeClass('active');
       $('.pagetop').removeClass('active');
     }
   });
+  }
+  else {
+    $('.header-button').addClass('active');
+    $('.pagetop').addClass('active');
+  }
+  //見出しアニメーション
+    $('.heading-title').on('inview', function () {
+      $(this).toggleClass('isActive');
+    });
+    
 });
 
 //ヘッダーの表示・非表示
