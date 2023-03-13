@@ -217,6 +217,7 @@ section {
   .header-button {
     display: flex;
     opacity: 0;
+    visibility: hidden;
     position: fixed;
     cursor: pointer;
     top: 0;
@@ -233,6 +234,7 @@ section {
   
   .header-button.active {
     opacity: 1;
+    visibility: visible;
   }
 
   .header-button .icon {
@@ -295,7 +297,6 @@ section {
 }
 
 .header-gnav ul li {
-    /* width: min(15%, 150px); */
     text-align: center;
     margin: 0 25px;
 }
@@ -382,7 +383,7 @@ section {
 
 .member-img li img {
     width: 100%;
-    aspect-ratio: 2 / 6;
+    aspect-ratio: 1 / 3;
     object-fit: cover;
 }
 
@@ -460,6 +461,7 @@ footer {
     display: flex;
     position: fixed;
     opacity: 0;
+    visibility: hidden;
     height: 40px;
     width: 40px;
     right: 30px;
@@ -474,6 +476,7 @@ footer {
 
 .pagetop.active {
   opacity: 1;
+  visibility: visible;
 }
 
 .pagetop_arrow {
@@ -600,7 +603,7 @@ footer {
   cursor: pointer;
 }
 
-.menu-close::after, .menu-close::before {
+.menu-close:after, .menu-close:before {
   content: '';
   display: block;
   position: absolute;
@@ -612,12 +615,12 @@ footer {
   cursor: pointer;
 }
 
-.menu-close::after {
+.menu-close:after {
   top: 0px;
   transform: rotate(-45deg);
 }
 
-.menu-close::before {
+.menu-close:before {
   top: 0px;
   transform: rotate(45deg);
 }
